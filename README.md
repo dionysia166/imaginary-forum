@@ -26,15 +26,24 @@ The project also includes various security measures such as **security headers**
 - **Security Headers** (Protecting Data)
 - **Request Logging** (Auditing)
   
-  
 ## Endpoints
 
-- **POST `/register`**: Registers a new user.
-- **POST `/login`**: Authenticates a user and starts a session.
-- **GET `/threads`**: Retrieves all discussion threads.
-- **POST `/threads`**: Creates a new discussion thread.
-- **GET `/threads/{id}`**: Retrieves a specific thread by ID, along with its posts.
-- **POST `/threads/{id}/posts`**: Adds a reply to a thread.
+### Account Routes
+- **GET `/account/create`**: Displays the form to create a new account.
+- **POST `/account/create`**: Submits the form to create a new user account.
+- **GET `/account/view/{id}`**: Views the details of a user account (protected route).
+- **GET `/account/login`**: Displays the login form.
+- **POST `/account/login`**: Submits the form to log a user into their account.
+- **POST `/account/logout`**: Logs the user out of their account (protected route).
+
+### Thread Routes
+- **GET `/thread/create`**: Displays the form to create a new discussion thread (protected route).
+- **POST `/thread/create`**: Submits the form to create a new thread (protected route).
+- **GET `/thread/view/{id}`**: Views the details of a specific thread.
+
+### Message Routes
+- **GET `/thread/view/{id}/message/create`**: Displays the form to create a new message within a thread (protected route).
+- **POST `/thread/view/{id}/message/create`**: Submits the form to post a new message within a thread (protected route).
 
 ## Database Structure
 
