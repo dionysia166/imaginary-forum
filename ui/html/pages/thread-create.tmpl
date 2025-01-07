@@ -1,0 +1,14 @@
+{{define "title"}}Create a new discussion thread{{end}}
+
+{{define "main"}}
+    <form action="/thread/create" method="POST">
+        <label for="title">Thread title:</label>
+
+        {{with .Form.FieldErrors.title}}
+            <label class="error" for="title">{{.}}</label>
+        {{end}}
+
+        <input type="text" name="title" value="{{.Form.Title}}" required>
+        <button type="submit">Publish Thread</button>
+    </form>
+{{end}}

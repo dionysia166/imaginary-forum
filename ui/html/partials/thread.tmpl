@@ -1,0 +1,29 @@
+{{define "thread"}}
+<a href="/thread/view/{{.ID}}">
+    <article>
+        <dl>
+            <dt>Title</dt>
+            <dd>{{.Title}}</dd>
+            <dt>Date</dt>
+            <dd>{{.DateAdded}}</dd>
+            <dt>Author</dt>
+            <dd>{{.Author.Username}}</dd>
+            {{with .Messages}} 
+                {{with index . 0}}
+                    <dt>Latest Message</dt>
+                    <dd>
+                        <p>Author: {{.Author.Username}}</p>
+                        <p>
+                            {{if gt (len .Body) 100}} 
+                                {{slice .Body 0 100}} 
+                            {{else}}
+                                {{.Body}} 
+                            {{end}}
+                        </p>
+                    </dd>
+                {{end}} 
+            {{end}}
+        </dl>
+    </article>
+</a>
+{{end}}

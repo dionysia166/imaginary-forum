@@ -1,0 +1,28 @@
+{{define "title"}}Discussion thread{{end}} {{define "main"}} {{end}}
+{{define "main"}}
+    <article class='thread'>
+        <h1>{{.Thread.Title}}</h1>
+        <dl>
+            <dt>Thread Date:</dt>
+            <dd><time>{{.Thread.DateAdded}}</time></dd>
+            <dt>Thread Author:</dt>
+            <dd>{{.Thread.Author.Username}}</dd>
+        </dl>
+        {{if .Thread.Messages}}
+            {{range .Thread.Messages}}
+                <dl>
+                    <dt>Message Date:</dt>
+                    <dd><time>{{.DateAdded}}</time></dd>
+                    <dt>Message Author:</dt>
+                    <dd>{{.Author.Username}}</dd>
+                </dl>
+                <p>{{.Body}}</p>
+            {{end}}
+        {{else}}
+            <p>No messages on this thread yet!</p>
+        {{end}}
+    </article>
+    <div>
+        <a href="/thread/view/{{.Thread.ID}}/message/create">Create Message</a>
+    </div>
+{{end}}

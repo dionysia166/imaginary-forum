@@ -1,0 +1,9 @@
+{{define "title"}}Home{{end}} 
+
+{{define "main"}}
+<ul>
+    {{range .Threads}}
+    <li>{{template "thread" .}}</li>
+    {{end}}
+</ul>
+{{end}}

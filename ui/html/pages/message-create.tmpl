@@ -1,0 +1,14 @@
+{{define "title"}}Post a message{{end}} 
+
+{{define "main"}} 
+    <form action="/thread/view/{{.Thread.ID}}/message/create" method="POST">
+        <label for="message">Message:</label>
+        
+        {{with .Form.FieldErrors.message}}
+            <label class="error" for="message">{{.}}</label>
+        {{end}}
+
+        <input type="text" name="message" value="{{.Form.Message}}" required>
+        <button type="submit">Publish Message</button>
+    </form>
+{{end}}

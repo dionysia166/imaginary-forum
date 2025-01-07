@@ -1,0 +1,24 @@
+{{define "title"}}Create an account{{end}} 
+
+{{define "main"}} 
+    <form action="/account/create" method="POST">
+        <label for="username">Username:</label>
+        {{with .Form.FieldErrors.username}}
+            <label class="error" for="username">{{.}}</label>
+        {{end}}
+        <input type="text" name="username" value="{{.Form.Username}}" required>
+
+        <label for="email">Email:</label>
+        {{with .Form.FieldErrors.email}}
+            <label class="error" for="email">{{.}}</label>
+        {{end}}        
+        <input type="email" name="email" value="{{.Form.Email}}" required>
+
+        <label for="password">Password:</label>
+        {{with .Form.FieldErrors.password}}
+            <label class="error" for="password">{{.}}</label>
+        {{end}}    
+        <input type="password" name="password" required>
+        <button type="submit">Submit</button>
+    </form>
+{{end}}

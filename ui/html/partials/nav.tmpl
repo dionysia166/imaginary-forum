@@ -1,0 +1,14 @@
+{{define "nav"}}
+<nav>
+    <a href='/'>Home</a>
+    {{if .IsAuthenticated}}
+        <a href='/thread/create'>Create thread</a>
+        <form action="/account/logout" method='POST'>
+            <button type="submit">Logout</button>
+        </form>
+    {{else}}
+        <a href='/account/create'>Signup</a>
+        <a href='/account/login'>Login</a>
+    {{end}}
+</nav>
+{{end}}
